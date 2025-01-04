@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rupak Airline</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f0f8ff;
+        }
+
+        header {
+            background: #1e90ff;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #4682b4;
+            padding: 10px;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background: #1e90ff;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #4682b4;
+        }
+
+        .boarding-pass {
+            background: #d3f9d8;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            background: #1e90ff;
+            color: white;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Rupak Airline</h1>
+    </header>
+    <nav>
+        <a href="#search">Search Flight</a>
+        <a href="#passenger">Passenger Details</a>
+        <a href="#seat">Select Seat</a>
+        <a href="#boarding">Boarding Pass</a>
+    </nav>
+
+    <div class="container">
+        <section id="search">
+            <h2>Search Flight</h2>
+            <div class="form-group">
+                <label for="from">From:</label>
+                <input type="text" id="from" placeholder="Enter departure city">
+            </div>
+            <div class="form-group">
+                <label for="to">To:</label>
+                <input type="text" id="to" placeholder="Enter destination city">
+            </div>
+            <div class="form-group">
+                <label for="date">Date:</label>
+                <input type="date" id="date">
+            </div>
+            <button onclick="searchFlight()">Search</button>
+        </section>
+
+        <section id="passenger">
+            <h2>Passenger Details</h2>
+            <div class="form-group">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" placeholder="Enter your full name">
+            </div>
+            <div class="form-group">
+                <label for="passport">Passport Number:</label>
+                <input type="text" id="passport" placeholder="Enter your passport number">
+            </div>
+        </section>
+
+        <section id="seat">
+            <h2>Select Seat</h2>
+            <div class="form-group">
+                <label for="seat">Seat Number:</label>
+                <select id="seat">
+                    <option value="">Select a seat</option>
+                    <option value="A1">A1</option>
+                    <option value="A2">A2</option>
+                    <option value="B1">B1</option>
+                    <option value="B2">B2</option>
+                </select>
+            </div>
+        </section>
+
+        <section id="boarding">
+            <h2>Boarding Pass</h2>
+            <button onclick="generateBoardingPass()">Generate Boarding Pass</button>
+            <div id="boarding-pass" class="boarding-pass" style="display:none;">
+                Your boarding pass will appear here.
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Rupak Airline. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function searchFlight() {
+            const from = document.getElementById('from').value;
+            const to = document.getElementById('to').value;
+            const date = document.getElementById('date').value;
+            if (from && to && date) {
+                alert(`Searching flights from ${from} to ${to} on ${date}.`);
+            } else {
+                alert('Please fill in all fields.');
+            }
+        }
+
+        function generateBoardingPass() {
+            const name = document.getElementById('name').value;
+            const passport = document.getElementById('passport').value;
+            const seat = document.getElementById('seat').value;
+
+            if (name && passport && seat) {
+                const pass = document.getElementById('boarding-pass');
+                pass.style.display = 'block';
+                pass.innerHTML = `Name: ${name}<br>Passport: ${passport}<br>Seat: ${seat}<br>Have a safe flight!`;
+            } else {
+                alert('Please complete all details to generate the boarding pass.');
+            }
+        }
+    </script>
+</body>
+</html>
