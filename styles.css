@@ -1,0 +1,347 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .sidebar {
+    width: 20%;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-right: 1px solid #ddd;
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+  }
+  
+  .sidebar ul li {
+    padding: 10px 15px;
+    margin: 5px 0;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold;
+  }
+  
+  .sidebar ul li.active, 
+  .sidebar ul li:hover {
+    background-color: #ffc9c9;
+    color: #000;
+  }
+  
+  .main-content {
+    width: 80%;
+    position: relative;
+  }
+  
+  .search-section {
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    z-index: 2;
+    color: white;
+  }
+  
+  .search-section h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+  }
+  
+  .search-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .search-box input {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+  }
+  
+  #date {
+    padding-right: 35px; /* Space for calendar icon */
+  }
+  
+  #search-btn {
+    background-color: #f50057;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    color: white;
+  }
+  
+  .background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    overflow: hidden;
+  }
+  
+  .background-image img {
+    width: 100vw; /* Full width of the viewport */
+    height: 100vh; /* Full height of the viewport */
+    object-fit: cover; /* Ensures the image covers the entire page */
+    object-position: center; /* Centers the image */
+  }
+  /* Passenger Details Page Styles */
+.page {
+    display: none; /* Hide all pages by default */
+  }
+  
+  .page.active {
+    display: block; /* Show only the active page */
+  }
+  
+  .details-header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .details-header p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+  }
+  
+  .details-content {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .person {
+    margin-bottom: 20px;
+  }
+  
+  .person h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+  
+  .photo-section {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .photo-section img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+  .webcam-btn,
+  #next-btn {
+    background-color: #f50057;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .sidebar {
+    width: 200px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #f4f4f4;
+    height: 100%;
+    padding-top: 20px;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar ul li {
+    padding: 15px 20px;
+    cursor: pointer;
+  }
+  
+  .sidebar ul li.active {
+    background: #ffb6c1;
+    color: #fff;
+  }
+  
+  .main-content {
+    margin-left: 220px;
+    padding: 20px;
+    background-image: url('plane.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  h1 {
+    margin-top: 20px;
+    font-size: 2em;
+    color: #333;
+  }
+  
+  .seat-map {
+    width: 300px;
+    margin-top: 30px;
+  }
+  
+  .plane-top {
+    background: #ccc;
+    width: 100%;
+    height: 50px;
+    border-radius: 50px 50px 0 0;
+  }
+  
+  .seats {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 0 0 20px 20px;
+  }
+  
+  .row {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .seat {
+    background: #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    width: 30px;
+    font-size: 12px;
+  }
+  
+  .seat.selected {
+    background: #ffb6c1;
+    color: #fff;
+  }
+  
+  .navigation-buttons {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background: #ffb6c1;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:disabled {
+    background: #ddd;
+    cursor: not-allowed;
+  }
+  /* Boarding Pass Page Styling */
+.boarding-pass-header {
+    text-align: center;
+    margin: 20px 0;
+    color: white;
+    font-size: 2rem;
+  }
+  
+  .boarding-pass-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px 0;
+  }
+  
+  .boarding-pass-btn {
+    background-color: #e84393;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .boarding-pass-btn:hover {
+    transform: scale(1.1);
+  }
+  
+  .check-in-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .check-in-btn,
+  .previous-btn {
+    background-color: #6c5ce7;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .check-in-btn:hover {
+    background-color: #4b4dbd;
+  }
+  
+  .previous-btn:hover {
+    background-color: #5a47a8;
+  }
+
+  /* Conclusion Page Styling */
+.conclusion-header {
+    text-align: center;
+    margin: 20px 0;
+    color: white;
+    font-size: 2.5rem;
+  }
+  
+  .conclusion-content {
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    color: #2d3436;
+    font-size: 1.2rem;
+    line-height: 1.6;
+  }
+  
+  .conclusion-content h2 {
+    margin-top: 20px;
+    color: #6c5ce7;
+  }
+  
+  
+  
+  
+  
