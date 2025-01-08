@@ -1,192 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rupak Airline</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #f0f8ff;
-        }
-
-        header {
-            background: #1e90ff;
-            color: white;
-            padding: 10px 20px;
-            text-align: center;
-        }
-
-        nav {
-            display: flex;
-            justify-content: center;
-            background: #4682b4;
-            padding: 10px;
-        }
-
-        nav a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        nav a:hover {
-            text-decoration: underline;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-
-        input, select, button {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        button {
-            background: #1e90ff;
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background: #4682b4;
-        }
-
-        .boarding-pass {
-            background: #d3f9d8;
-            padding: 15px;
-            border-radius: 8px;
-            text-align: center;
-            font-weight: bold;
-        }
-
-        footer {
-            text-align: center;
-            background: #1e90ff;
-            color: white;
-            padding: 10px 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Airline Booking</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Welcome to Rupak Airline</h1>
-    </header>
-    <nav>
-        <a href="#search">Search Flight</a>
-        <a href="#passenger">Passenger Details</a>
-        <a href="#seat">Select Seat</a>
-        <a href="#boarding">Boarding Pass</a>
-    </nav>
+  <div class="sidebar">
+    <ul>
+      <li class="active" onclick="navigateTo('search-flight')">Search Flight</li>
+      <li onclick="navigateTo('passenger-details')">Passenger Details</li>
+      <li onclick="navigateTo('select-seat')">Select Seat</li>
+      <li onclick="navigateTo('boarding-pass')">Boarding Pass</li>
+      <li onclick="navigateTo('self-checkin')">Self Check-in</li>
+      <li onclick="navigateTo('conclusion')">Conclusion</li>
+    </ul>
+  </div>
 
-    <div class="container">
-        <section id="search">
-            <h2>Search Flight</h2>
-            <div class="form-group">
-                <label for="from">From:</label>
-                <input type="text" id="from" placeholder="Enter departure city">
-            </div>
-            <div class="form-group">
-                <label for="to">To:</label>
-                <input type="text" id="to" placeholder="Enter destination city">
-            </div>
-            <div class="form-group">
-                <label for="date">Date:</label>
-                <input type="date" id="date">
-            </div>
-            <button onclick="searchFlight()">Search</button>
-        </section>
-
-        <section id="passenger">
-            <h2>Passenger Details</h2>
-            <div class="form-group">
-                <label for="name">Full Name:</label>
-                <input type="text" id="name" placeholder="Enter your full name">
-            </div>
-            <div class="form-group">
-                <label for="passport">Passport Number:</label>
-                <input type="text" id="passport" placeholder="Enter your passport number">
-            </div>
-        </section>
-
-        <section id="seat">
-            <h2>Select Seat</h2>
-            <div class="form-group">
-                <label for="seat">Seat Number:</label>
-                <select id="seat">
-                    <option value="">Select a seat</option>
-                    <option value="A1">A1</option>
-                    <option value="A2">A2</option>
-                    <option value="B1">B1</option>
-                    <option value="B2">B2</option>
-                </select>
-            </div>
-        </section>
-
-        <section id="boarding">
-            <h2>Boarding Pass</h2>
-            <button onclick="generateBoardingPass()">Generate Boarding Pass</button>
-            <div id="boarding-pass" class="boarding-pass" style="display:none;">
-                Your boarding pass will appear here.
-            </div>
-        </section>
+  <div class="main-content">
+    <!-- Search Flight Page -->
+    <div id="search-flight" class="page active">
+      <div class="search-section">
+        <h1>Search Flight</h1>
+        <div class="search-box">
+          <input type="text" placeholder="From" id="from">
+          <input type="text" placeholder="To" id="to">
+          <input type="date" id="date">
+          <button id="search-btn">Search</button>
+        </div>
+      </div>
+      <div class="background-image">
+        <img src="plane.jpg" alt="Airplane">
+      </div>
     </div>
 
-    <footer>
-        <p>&copy; 2025 Rupak Airline. All Rights Reserved.</p>
-    </footer>
+    <!-- Passenger Details Page -->
+    <div id="passenger-details" class="page">
+      <div class="details-header">
+        <h1>Enter Details</h1>
+        <p>It's time to enter personal details for both.</p>
+      </div>
+      <div class="details-content">
+        <form>
+          <div class="person">
+            <h2>Person 1</h2>
+            <input type="text" placeholder="First Name *">
+            <input type="text" placeholder="Last Name *">
+            <input type="email" placeholder="Email Address *">
+            <button type="button" id="next-btn">Next</button>
+          </div>
 
-    <script>
-        function searchFlight() {
-            const from = document.getElementById('from').value;
-            const to = document.getElementById('to').value;
-            const date = document.getElementById('date').value;
-            if (from && to && date) {
-                alert(`Searching flights from ${from} to ${to} on ${date}.`);
-            } else {
-                alert('Please fill in all fields.');
-            }
-        }
+          <div class="photo-section">
+            <h3>Capture your face from different angles</h3>
+            <img src="giphy.gif" alt="Placeholder image">
+            <button class="webcam-btn">Webcam</button>
+          </div>
 
-        function generateBoardingPass() {
-            const name = document.getElementById('name').value;
-            const passport = document.getElementById('passport').value;
-            const seat = document.getElementById('seat').value;
+          <div class="person">
+            <h2>Person 2</h2>
+            <input type="text" placeholder="First Name *">
+            <input type="text" placeholder="Last Name *">
+            <input type="email" placeholder="Email Address *">
+          </div>
+        </form>
+      </div>
+    </div>
 
-            if (name && passport && seat) {
-                const pass = document.getElementById('boarding-pass');
-                pass.style.display = 'block';
-                pass.innerHTML = `Name: ${name}<br>Passport: ${passport}<br>Seat: ${seat}<br>Have a safe flight!`;
-            } else {
-                alert('Please complete all details to generate the boarding pass.');
-            }
-        }
-    </script>
+    <!-- Select Seat Page -->
+    <div id="select-seat" class="page">
+      <h1>Select 2 Seats</h1>
+      <div class="seat-map">
+        <div class="plane-top"></div>
+        <div class="seats">
+          <!-- Row 1 -->
+          <div class="row">
+            <div class="seat" data-seat="1A">1A</div>
+            <div class="seat" data-seat="1B">1B</div>
+            <div class="seat" data-seat="1C">1C</div>
+            <div class="seat" data-seat="1D">1D</div>
+            <div class="seat" data-seat="1E">1E</div>
+            <div class="seat" data-seat="1F">1F</div>
+          </div>
+          <!-- Row 2 -->
+          <div class="row">
+            <div class="seat" data-seat="2A">2A</div>
+            <div class="seat" data-seat="2B">2B</div>
+            <div class="seat" data-seat="2C">2C</div>
+            <div class="seat" data-seat="2D">2D</div>
+            <div class="seat" data-seat="2E">2E</div>
+            <div class="seat" data-seat="2F">2F</div>
+          </div>
+          <!-- Add more rows as needed -->
+        </div>
+      </div>
+      <div class="navigation-buttons">
+        <button id="prev-btn" onclick="navigateTo('passenger-details')">Previous</button>
+        <button id="next-btn" disabled>Next</button>
+      </div>
+    </div>
+  </div>
+  <div id="boarding-pass" class="page">
+    <div class="boarding-pass-header">
+      <h1>Collect Your Boarding Pass</h1>
+    </div>
+    <div class="boarding-pass-container">
+      <button class="boarding-pass-btn">🛫 BOARDING PASS</button>
+      <button class="boarding-pass-btn">🛫 BOARDING PASS</button>
+    </div>
+    <div class="check-in-container">
+      <button class="check-in-btn">Check In</button>
+      <button class="previous-btn">Previous</button>
+    </div>
+  </div>
+  <div id="conclusion" class="page">
+    <div class="conclusion-header">
+      <h1>Conclusion</h1>
+    </div>
+    <div class="conclusion-content">
+      <p>Wow, what a whirlwind adventure we had with Digi Yatra! This awesome app taught us all about the magic of AI, from making our boarding passes to recognizing our faces at the airport. Let's relive our journey and see what amazing things we discovered!</p>
+  
+      <h2>Our Incredible Journey:</h2>
+      <p>
+        When we used Digi Yatra, we felt like we had a real-life wizard helping us out. First, AI worked its magic to create our boarding passes for the big trip. It was like having a super speedy assistant who knew just what we needed!
+      </p>
+      <p>
+        Then, when we arrived at the airport, we stepped up to a mysterious-looking machine with a camera. We were a little nervous at first, but when we stood in front of it, something amazing happened. The machine recognized our faces, just like that! It was like having a friend who could spot us in a crowded room.
+      </p>
+      <p>
+        And not only did it recognize us, but it also showed our names on the screen! It felt like we were in a magical storybook, where everything knows who we are.
+      </p>
+  
+      <h2>What We Learned:</h2>
+      <p>
+        Through our adventure, we realized that AI isn't just some fancy technology. It's like having a wise friend who can do all sorts of incredible things, like making sure we have our boarding passes ready and helping us breeze through airport security.
+      </p>
+      <p>
+        We also learned that AI isn't perfect. Sometimes, it might get a little mixed up or not recognize us right away. But that's okay! We can help teach it and make it even better, just like helping a friend learn something new.
+      </p>
+  
+      <h2>Dreaming of More Adventures:</h2>
+      <p>
+        As we head home from our journey, we can't help but dream of more adventures with AI by our side. With its help, we can explore new places, discover new things, and make memories that will last a lifetime. Who knows what magical adventures await us next time!
+      </p>
+    </div>
+  </div>
+  
+  
+
+  <script src="script.js"></script>
 </body>
 </html>
